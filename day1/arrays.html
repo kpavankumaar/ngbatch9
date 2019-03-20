@@ -8,7 +8,10 @@
 		var friend1 = {
 			name:'krishna',
 			age: 18,
-			gender: 'm'
+			gender: 'm',
+			details: function(){
+				console.log('friend1 function');
+			}
 		}
 		var friend2 = {
 			name:'pavan',
@@ -29,9 +32,16 @@
 		var friends = [friend1,friend2,friend3];
 		for(var i = 0 ; i < 3 ; i = i + 1 ){
 			console.log(friends[i].age)
-		}
-		console.log(3 > 2 > 1);
+		};
 
+		console.log(3 > 2 > 1);
+		friends.push(10);
+		friends.unshift(20);
+		var arr1 = [1,2,3,4,5];
+		var num = arr1.pop()
+		var firstNum = arr1.shift();
+		var arr2 = [3,4,5,6,7];
+		var arr_2 = arr2.splice(2,2,[10,11])
 	</script>
 </body>
 </html>
