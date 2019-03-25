@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		var arr = [1,2,3,4,5];
+		var arr2 = arr.map(function(item){
+			if(item > 2){
+				return item * 2	
+			}
+			
+		})
+
+
+		// function test_1(cb){
+		// 	for (var i = arr.length - 1; i >= 0; i--) {
+		// 		cb(arr[i]);
+		// 	}
+			
+		// }
+		// test_1(function(item){
+		// 	console.log(item)
+		// })
+		var friend1 = {
+			name:'krishna',
+			age: 18,
+			gender: 'm',
+			details: function(){
+				console.log('friend1 function');
+			}
+		}
+		var friend2 = {
+			name:'pavan',
+			age: 30,
+			gender: 'm'
+		}
+		var friend3 = {
+			name:'Radhe',
+			age: 30,
+			gender: 'f'
+		}
+		var arr1 = [friend1,friend2,friend3]
+		var arr3 = arr1.filter(function(obj){
+			if(obj.age>18 && obj.gender === 'f'){
+				return obj;
+			}
+		})
+		var arr4 = [1,2,3,4,5];
+		var reducdVal = arr4.reduce(function(cum,item,index,arr){
+			
+			return cum = cum + item;
+		})
+		// flatten
+		var arr5 = [[1,2],[3,4],[5,6]];
+		var arr6 = arr5.reduce(function(cum,item,index,arr){
+			return cum.concat(item);
+		})
+	</script>
+</body>
+</html>

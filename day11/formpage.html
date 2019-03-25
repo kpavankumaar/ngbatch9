@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div>
+		<label>Username</label> <input type="text" name="Username">
+	</div>
+	<div>
+		<label>Phone</label> <input type="phone" name="phone">
+	</div>
+	<button>Submit</button>
+	<script type="text/javascript">
+		var userName = document.getElementsByName('Username')[0];
+		var phone = document.getElementsByName('phone')[0];
+		var btn = document.getElementsByTagName('button')[0];
+
+		btn.onclick = function(){
+			console.log(userName.value, phone.value)
+			var user1 = new UserDetails(userName.value, phone.value);
+			console.log(user1);
+		}
+		function UserDetails(user,phone){
+			this.name = user;
+			this.phone = phone
+		}
+	</script>
+</body>
+</html>

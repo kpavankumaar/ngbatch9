@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+		var obj = {
+			name:'ravi'
+		}
+		var obj1 = obj;
+		obj1.name = 'srk';
+		console.log(obj.name);// call by reference ie memory sharing
+		var arr = [1,2]
+		var arr1 = arr;
+		arr1.push(3);
+
+		var a = 10 ;
+		var b = a;
+		b =20 ;
+		console.log(a);// call by value ie new memory space is assigned
+
+		var obj2 = Object.create(obj); 
+		var obj3 = Object.create({});
+		obj2.name = 'krishna';
+
+
+	</script>
+</body>
+</html>

@@ -19,9 +19,26 @@
 		var btn = document.getElementsByTagName('button');
 		var para = document.getElementsByTagName('p');
 		console.log(btn[0]);
-		btn[0].onclick = function(){
-			para[0].style.display = 'none';
+		var flag = true;
+		test();
+		var test = function(num){
+			// num = typeof num === string ? num : false;
+		// function test(){	
+			console.log('test');
 		}
+		// test()
+
+		btn[0].onclick = function(){
+			if(flag){
+				para[0].style.display = 'none';
+				flag=false;	
+			}else{
+				para[0].style.display = 'block';	
+				flag=true;
+			}
+		}
+		console.log(3 > 2 > 1)
 	</script>
+
 </body>
 </html>
