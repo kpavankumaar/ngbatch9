@@ -17,13 +17,34 @@
 		var btn = document.getElementsByTagName('button')[0];
 
 		btn.onclick = function(){
+			console.log(this);
 			console.log(userName.value, phone.value)
 			var user1 = new UserDetails(userName.value, phone.value);
 			console.log(user1);
 		}
+		{}
 		function UserDetails(user,phone){
 			this.name = user;
 			this.phone = phone
+		}
+		UserDetails('krishna','1234567890');
+		function test(){
+			console.log(this);
+		}
+		console.log(this);
+		test();
+		var table = {
+			color:'darkgrey',
+			canHoldWeight: function(){
+				
+				console.log('50kg');
+				var selfThis = this;
+				function run(){
+					console.log(selfThis);
+				}
+				run();
+				console.log(this.color);
+			}
 		}
 	</script>
 </body>
