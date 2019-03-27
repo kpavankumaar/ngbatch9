@@ -51,12 +51,13 @@
 		var reducdVal = arr4.reduce(function(cum,item,index,arr){
 			
 			return cum = cum + item;
-		})
+		},0)
 		// flatten
 		var arr5 = [[1,2],[3,4],[5,6]];
 		var arr6 = arr5.reduce(function(cum,item,index,arr){
 			return cum.concat(item);
 		})
+
 	</script>
 </body>
 </html>

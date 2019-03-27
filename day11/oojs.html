@@ -5,6 +5,9 @@
 </head>
 <body>
 	<script type="text/javascript">
+		var obj1 ={
+			name:'krishna'
+		} 
 		function Transmision(clutch, gears, exhaust, wheels){
 			this.clutchType = clutch;
 			this.gearMechanism = gears;
@@ -13,12 +16,20 @@
 		}
 		function CustomBike(engine, transmission, body){
 			this.engine = engine;
-			this.transmissionSystem = transmission;
+			// this.transmissionSystem = transmission;
 			this.body = body;
+			// Transmision.call(this,transmission[0],transmission[1],transmission[2],transmission[3]);
+			// this.basicDetails = function(){
+			// 	console.log(this.engine, this.body);
+			// }
+			Transmision.apply(this,transmission);	
 		}
-
-		var bike = new CustomBike('650cc','Suzuki transmissionbox', 'nakedbike')
-
+		CustomBike.prototype.basicDetails = function(){
+				console.log(this.engine, this.body);
+			};
+		var arr = ['slipperClutch', '6speed gearbox', 'silencer', 'RE alloy wheels']
+		var bike = new CustomBike('650cc', arr, 'nakedbike');
+		var bike1 = new CustomBike('1000cc', arr, 'cruiser');
 	</script>
 </body>
 </html>
