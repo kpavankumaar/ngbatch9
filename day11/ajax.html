@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+	<script type="text/javascript">
+		var xhr = new XMLHttpRequest();
+		var id = 2;
+		console.log(xhr.readyState)
+		var url = 'https://jsonplaceholder.typicode.com/comments?postId='+id;
+		xhr.open('GET',url,true);
+		console.log(xhr.readyState);
+		xhr.onreadystatechange = function(){
+
+			console.log(xhr.readyState);
+			if(xhr.readyState === 4 && xhr.status === 200){
+				console.log(xhr.response);	
+			}
+			
+
+		}
+		xhr.onload =function(){
+			console.log(xhr.readyState);
+		}
+		xhr.send();
+
+	</script>
+</body>
+</html>
