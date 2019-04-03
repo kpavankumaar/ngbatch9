@@ -5,15 +5,60 @@
 </head>
 <body>
 	<script type="text/javascript">
-		var promise = new Promise()
-		promise.then(function(){
-			console.log('resolve');
-		},function(){
-			console.log('reject');
-		}
+		// var testFn = function(fn,fn1){
+		// 	fn();
+		// 	fn1();
+		// }
+		// function then(fn){
+		// 	console.log(typeof fn);
+		// 	var num = 10 ;
+		// 	var num1 = 20 
+		// 	fn(function(){
+		// 		console.log('fndata');
+		// 	},function(){
+		// 		console.log('fn1data')
+		// 	});
+		// }
 
-		)
+		// then(testFn);
+
+
+		var xhr = new XMLHttpRequest();
+		var urlPath = "https://jsonplaceholder.typicode.com/posts";
+		function promise(url){
+			return new Promise(function(resolve, reject){
+				xhr.open('get',url,true);
+				xhr.onreadystatechange = function(){
+					if (xhr.readyState === 4 && xhr.status === 200) {
+						resolve(xhr.response);
+					}else if(xhr.status !== 200){
+						reject(xhr.status);
+					}
+				}
+				xhr.send(null);
+			});	
+		}
+		
+		promise(urlPath).then(function(res){
+			console.log(res)
+		})
+		.catch(function(status){
+			console.log(status);
+		})	
 		// promise.catch()
+		// promise('https://jsonplaceholder.typicode.com/us').then(function(res){
+		// 		console.log(res);
+		// }).catch(function(err){
+		// 	console.log(err);
+		// });
+		promise('https://jsonplaceholder.typicode.com/users').then(function(res){
+				// console.log(res);
+				return 123;
+		}).then(function(res){
+			return res * 2;
+		}).then(function(res){
+			console.log(res);
+		})
 	</script>
 </body>
 </html>
