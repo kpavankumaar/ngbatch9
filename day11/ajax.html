@@ -5,7 +5,7 @@
 </head>
 <body>
 
-	<script type="text/javascript">
+	<!-- <script type="text/javascript">
 		var xhr = new XMLHttpRequest();
 		var id = 2;
 		console.log(xhr.readyState)
@@ -26,6 +26,17 @@
 		}
 		xhr.send();
 
+	</script> -->
+	<script type="text/javascript" >
+
+		(function(win){
+			var a = 10 ;
+			var b = a ;
+			console.log(a)
+			win.num = b;
+
+		})(window)
+		// console.log(a);
 	</script>
 </body>
 </html>
