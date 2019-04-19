@@ -17,6 +17,7 @@ const obj_1 = {
 }
 
 obj_1.name = "ravi";
+obj_1.age = 25;
 // for(let i= 0 ; i < 10 ; i = i + 1){
     //     setTimeout(function(){
     //         console.log(i)
