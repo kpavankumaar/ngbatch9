@@ -12,6 +12,7 @@ for(let i= 0 ; i < 10 ; i = i + 1){
 }
 const test = 25;
 test = 30;
+
 const obj_1 = {
     name:'krishna'
 }

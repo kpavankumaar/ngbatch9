@@ -2,7 +2,7 @@
 var obj_1 = {
     firstName: 'srk',
     details:() => {
-        console.log(this.firstName);
+        console.log(this);
     }
 };
 
@@ -14,6 +14,9 @@ const num =  (res => res.num1+10)(window);
 var  name_3 =  () => {
     console.log(this);
 }
-name_3()
+name_3();
+
+
+
 
 // console.log(num);
