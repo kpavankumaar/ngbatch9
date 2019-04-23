@@ -27,16 +27,17 @@ obj = {
 obj.funTest ;
 
 // object def
-var obj1 :{[key:string]:string | number}
+var obj1 :{[key:string]:(a:number,b:number)=>number}
 
 obj1 ={
-    firstName:'Balaram',
-    lastName:'y',
-    age:20,
-    details:function(){
+    details:function(num1,num2){
         console.log(this.firstName);
+        return num1 + num2;
     }
 }
+obj1.details(10,15)
+
+
 
 
 
