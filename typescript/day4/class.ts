@@ -1,11 +1,19 @@
-class Tree {
-    constructor(val){
-        console.log(val);
-    }
-    type:string = 'Neem Tree';
-    grows(){
-        console.log(this.type);
-    }
-}
-let obj = new Tree(10);
-obj.grows()
+// class Tree {
+//     name;
+//     constructor(val:string){
+//         this.name = val;
+        
+//     }
+//     type:string = 'Neem Tree';
+//     grows(){
+//         console.log(this.name);
+//     }
+// }
+// class Branches extends Tree{
+//     constructor(treeType){
+//         super(treeType)
+//     }
+//     shapes: 'curved';
+// }
+// let obj = new Branches('banyan');
+// obj.grows();

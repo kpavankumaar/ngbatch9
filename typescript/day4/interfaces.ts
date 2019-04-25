@@ -1,6 +1,6 @@
 interface UserDetails {
     'firstName':string
-    'age':number
+    'age'?:number
     'details':()=> number
 
 }
@@ -9,7 +9,7 @@ let obj_1 : UserDetails
 
 obj_1 = {
     firstName:'krishna',
-    age:25,
+    // age:"",
     details:function(){return 10}
 }
 
