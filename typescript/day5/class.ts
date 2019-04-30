@@ -54,3 +54,15 @@ console.log('age is ',obj.ageVal);
 // console.log(obj.name);
 // var objTree = new Tree('neem', 40, 15);
 // console.log(objTree.noOfBranches);
+
+//generics
+
+function sum(num:number):number{
+    return num;
+}
+function sum_1<T>(num:Array<T>):Array<T>{
+    num.length
+    num.push()
+    return num;
+}
+let test:{}
