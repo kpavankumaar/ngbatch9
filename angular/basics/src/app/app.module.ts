@@ -4,10 +4,12 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
+import { TemplatedrivenformComponent } from './templatedrivenform/templatedrivenform.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TemplatedrivenformComponent,
   ],
   imports: [
     BrowserModule,

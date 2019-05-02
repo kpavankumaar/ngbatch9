@@ -19,7 +19,9 @@ export class AppComponent {
     this.username.nativeElement.style.backgroundColor = 'lightgreen';
     this.ngmodelbinding  = 'Ravi kumar';
   }
-  
+  chooseCountry(val){
+    console.log(val)
+  }
   countries = [
     'India', 'China', 'Pakistan', 'Bangladesh', 'Srilanka'
   ]

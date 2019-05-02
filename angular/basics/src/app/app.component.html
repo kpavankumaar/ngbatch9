@@ -1,22 +1,23 @@
-<h4>
+<!-- <h4>
   Welcome to {{title}} {{1 + 3 == 4}}
-</h4>
+</h4> -->
 <!-- property bindings -->
-<p [style.color] = 'color'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora, dolore inventore! Iste laboriosam in vero numquam omnis vitae? Accusamus quo hic maiores aspernatur perspiciatis illo ullam, fugit beatae quaerat laboriosam?</p>
+<!-- <p [style.color] = 'color'>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempora, dolore inventore! Iste laboriosam in vero numquam omnis vitae? Accusamus quo hic maiores aspernatur perspiciatis illo ullam, fugit beatae quaerat laboriosam?</p>
 <img [src]='imgPath' alt="female icon ">
-<!-- event bindings -->
-<input type="text" (input) = 'testFn($event.target.value)'>
-{{inputVal}} <br>
-<input type="text" #username (input) = 'testFn(username.value)'>
+event bindings -->
+<!-- <input type="text" (input) = 'testFn($event.target.value)'> -->
+<!-- {{inputVal}} <br> --> 
+<!-- <input type="text" #username (input) = 'testFn(username.value)'>
 <br>
 <input type="text" (keyup) = 'testFn($event.target.value)' placeholder="username">
 <br>
 <input type="text" (keyup.enter) = 'testFn($event.target.value)' (blur)='testFn($event.target.value)'placeholder="username">
-<select name="" id="">
+<select name="" id="" (click) = 'chooseCountry($event.target.value)'>
   <option *ngFor='let country of countries'>{{country}}</option>
 </select>
 <div>
   <p *ngIf = true>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est atque eos quos, corporis deleniti magni illum error soluta esse neque porro consequuntur debitis praesentium maxime ad! Rerum magnam harum laudantium?</p>
 </div>
 <input type="text" [(ngModel)] = 'ngmodelbinding'  >
-{{ngmodelbinding}}
+{{ngmodelbinding}} -->
+<app-templatedrivenform></app-templatedrivenform>
