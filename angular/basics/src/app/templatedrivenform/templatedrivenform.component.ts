@@ -11,5 +11,7 @@ export class TemplatedrivenformComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  submit(val){
+    console.log(val);
+  }
 }
