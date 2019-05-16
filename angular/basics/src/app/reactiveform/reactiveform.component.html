@@ -3,23 +3,86 @@
     <form [formGroup] = "customerForm">
       <div class="form-group">
         <label for="exampleInputEmail1">First Name</label>
-        <input type="text" class="form-control" placeholder="Enter first name">
+        <input type="text" 
+          class="form-control" 
+          placeholder="Enter first name"
+          formControlName = "firstName"
+          [ngClass] ="{'is-invalid': customerForm.controls.firstName.invalid && customerForm.controls.firstName.touched}"
+          >
       </div>
       <div class="form-group">
         <label for="exampleInputEmail1">Last Name</label>
-        <input type="text" class="form-control" placeholder="Enter last name">
+        <input type="text" 
+          class="form-control" 
+          placeholder="Enter last name"
+          formControlName = "lastName"
+          [ngClass] ="{'is-invalid': customerForm.controls.lastName.invalid && customerForm.controls.lastName.touched}"
+          >
       </div>
+      <!-- Rating -->
+      <div class="form-group">
+        <label for="exampleInputEmail1">Rating</label>
+        <input type="number" 
+          min="0"
+          max="5"
+          class="form-control" 
+          placeholder="Rating"
+          formControlName = "rating"
+          [ngClass] ="{'is-invalid': !customerForm.controls.rating.invalid && customerForm.controls.rating.touched}"
+          >
+        
+      </div>
+      <!-- radio button for notifications -->
+      <div class="form-check">
+        <input class="form-check-input" 
+          type="radio" 
+          value="email"
+          formControlName = "notifications"
+          (click) = "notificationMessage($event.target.value)"
+          >
+        <label class="form-check-label">
+          Email
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" 
+          type="radio" 
+          value="phone"
+          checked
+          formControlName = "notifications"
+          (click) = "notificationMessage($event.target.value)"
+          >
+        <label class="form-check-label" for="exampleRadios2">
+          phone
+        </label>
+      </div>
+      <!--end of radio button for notifications -->
+      <!-- phone -->
       <div class="form-group">
         <label for="exampleInputEmail1">Phone</label>
-        <input type="number" class="form-control" placeholder="Enter Phone number">
+        <input type="phone" 
+          class="form-control" 
+          placeholder="Enter Phone number"
+          formControlName = "phone"
+          [ngClass] ="{'is-invalid': customerForm.controls.phone.invalid && customerForm.controls.phone.touched}"
+          >
+          
+        <div class="invalid-feedback">
+          <label *ngIf = 'customerForm.controls.phone.errors?.required'>
+            phone number is mandatory
+          </label>
+          <label *ngIf = 'customerForm.controls.phone.errors?.match'>
+              phone number is 10 digit number
+          </label>
+          
+        </div>  
       </div>
       <div class="form-group">
         <label for="exampleInputEmail1">Email address</label>
         <input type="email" 
           class="form-control" 
           id="exampleInputEmail1" 
-          required
-          minlength="6"
+          
           formControlName = "email"
           [ngClass] = "{'is-invalid': customerForm.controls.email.invalid && customerForm.controls.email.touched }"
           placeholder="Enter email">
@@ -34,23 +97,6 @@
               
             
           </div> 
-      </div>
-      <div class="form-group">
-        <label for="exampleInputPassword1">Password</label>
-        <input 
-          type="password" 
-          class="form-control" 
-          formControlName = "password"
-          required
-          [ngClass] = "{'is-invalid': customerForm.controls.password.invalid && customerForm.controls.password.touched}"
-          id="exampleInputPassword1"
-          placeholder="Password">
-        <div class="invalid-feedback">
-          <label *ngIf = "customerForm.get('password').invalid">
-            Password is required
-          </label>
-          
-        </div>  
       </div>
       <div class="form-group form-check">
         <input type="checkbox" 
@@ -77,12 +123,12 @@
         </div>
         <div class="form-group">
           <label>Zip Code </label>
-          <input type="text" class="form-control" placeholder="Enter Zip code ">
+          <input type="text" class="form-control" placeholder="Enter ZipCode ">
         </div>
         
       </div>
       
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" [disabled] ="!customerForm.valid"  class="btn btn-primary">Submit</button>
     </form>
   </div>
 </div>
