@@ -29,7 +29,9 @@ function phoneValidation(c:AbstractControl): {[key:string]:boolean} | null{
 })
 export class ReactiveformComponent implements OnInit {
   customerForm:FormGroup;
-  constructor(private fb:FormBuilder) { }
+  constructor(private fb:FormBuilder) { 
+    console.log('constructor in reactive form component')
+  }
   showHideAddress: boolean = false;
   ngOnInit() {
     this.customerForm = this.fb.group({

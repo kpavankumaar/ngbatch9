@@ -25,4 +25,8 @@ export class AppComponent {
   countries = [
     'India', 'China', 'Pakistan', 'Bangladesh', 'Srilanka'
   ]
+
+  constructor(){
+    console.log('constructor function inside the app component.ts');
+  }
 }
