@@ -1,4 +1,5 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
+import { Component, ViewChild, ElementRef, OnChanges, OnInit, DoCheck } from '@angular/core';
+import { NgOnChangesFeature } from '@angular/core/src/render3';
 
 @Component({
   selector: 'app-root',
@@ -6,7 +7,7 @@ import { Component, ViewChild, ElementRef } from '@angular/core';
   // template:`<h3>{{title}}</h3>`,
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnChanges,OnInit, DoCheck {
   @ViewChild('username') username:ElementRef;
   ngmodelbinding = 'ramskrishna';
   title = 'Angular application building';
@@ -22,10 +23,31 @@ export class AppComponent {
   chooseCountry(val){
     console.log(val)
   }
-  countries = [
-    'India', 'China', 'Pakistan', 'Bangladesh', 'Srilanka'
-  ]
-
+  countries = ['India', 'China', 'Pakistan', 'Bangladesh', 'Srilanka' ]
+  testLifeCycleHooks(){
+    this.userData = {
+      firstName:"krishna",
+      lastName:"kumar",
+      rating:4
+    }
+  }
+  userData={
+    firstName:"ravi",
+    lastName:"kumar",
+    rating:3
+  }
+  ngOnChanges (){
+    console.log('app component ngOnchanges');
+  }
+  ngOnInit(){
+    console.log('app component ngOnInit');
+  }
+  ngDoCheck(){
+    console.log('app component ngDoCheck');
+  }
+  ngAfterContentInit(){
+    console.log("ngAfterContentInit in appcomponent")
+  }
   constructor(){
     console.log('constructor function inside the app component.ts');
   }

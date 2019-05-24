@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, OnChanges, DoCheck } from '@angular/core';
 import { FormGroup, FormControl, Validators, AbstractControl, FormBuilder } from '@angular/forms';
 import { ValueTransformer } from '@angular/compiler/src/util';
 import { fbind } from 'q';
@@ -27,15 +27,22 @@ function phoneValidation(c:AbstractControl): {[key:string]:boolean} | null{
   templateUrl: './reactiveform.component.html',
   styleUrls: ['./reactiveform.component.css']
 })
-export class ReactiveformComponent implements OnInit {
+export class ReactiveformComponent implements OnInit,OnChanges, DoCheck {
+  @Input() dataFromParentComponent;
   customerForm:FormGroup;
-  constructor(private fb:FormBuilder) { 
-    console.log('constructor in reactive form component')
+  constructor(private fb:FormBuilder) {
+
+    console.log('constructor in reactive form component', this.dataFromParentComponent)
+  }
+  ngOnChanges(SimpleChanges){
+    console.log("ng onchanges reactive form child component ", this.dataFromParentComponent);
+    console.log("ng onchanges simpleChanges " +  SimpleChanges.current + SimpleChanges.previous);
   }
   showHideAddress: boolean = false;
   ngOnInit() {
+    console.log('ngoninit in reactive form component', this.dataFromParentComponent);
     this.customerForm = this.fb.group({
-      firstName:this.fb.control(''),
+      firstName:this.fb.control(this.dataFromParentComponent.firstName),
       lastName:new FormControl(''),
       rating:new FormControl('',[Validators.required,ratingRange(0,5)]),
       // phone:new FormControl('',[Validators.required,Validators.minLength(10),Validators.maxLength(10)]),
@@ -50,7 +57,18 @@ export class ReactiveformComponent implements OnInit {
         state: new FormControl('', Validators.required),
         zipcode: new FormControl('', Validators.required)
       })
+      
     })
+    
+
+  }
+  
+  ngDoCheck(){
+    console.log('reactive form component ngDocheck');
+  }
+  ngAfterContentInit(){
+    console.log("ngAfterContentInit in reactiveform component")
+  }
     // this.customerForm = new FormGroup({
     //   firstName:new FormControl('', Validators.required),
     //   lastName:new FormControl(''),
@@ -68,27 +86,25 @@ export class ReactiveformComponent implements OnInit {
     //     zipcode: new FormControl('', Validators.required)
     //   })
     // })
-    console.log(this.customerForm);
-  }
-  submit(){
-    console.log(this.customerForm);
-  }
-  showAddress(){
-    this.showHideAddress = this.showHideAddress == false ? true : false;
-  }
-  notificationMessage(e){
-    console.log(e);
-    let phone = this.customerForm.get('phone');
-    let email = this.customerForm.get('email');
-    if( e === 'phone'){
-      phone.setValidators([Validators.required,phoneValidation]);
-      email.clearValidators();
-    }else{
-      phone.clearValidators();
-      email.setValidators(Validators.required);
+    
+    submit(){
+      console.log(this.customerForm);
     }
-    phone.updateValueAndValidity();
-    email.updateValueAndValidity();
-  } 
-
-}
+    showAddress(){
+      this.showHideAddress = this.showHideAddress == false ? true : false;
+    }
+    notificationMessage(e){
+      console.log(e);
+      let phone = this.customerForm.get('phone');
+      let email = this.customerForm.get('email');
+      if( e === 'phone'){
+        phone.setValidators([Validators.required,phoneValidation]);
+        email.clearValidators();
+      }else{
+        phone.clearValidators();
+        email.setValidators(Validators.required);
+      }
+      phone.updateValueAndValidity();
+      email.updateValueAndValidity();
+    } 
+  }
