@@ -3,7 +3,8 @@ import { DataService } from '../core/service/data.service';
 @Component({
   selector: 'app-customers',
   templateUrl: './customers.component.html',
-  styleUrls: ['./customers.component.css']
+  styleUrls: ['./customers.component.css'],
+  providers:[DataService]
 })
 export class CustomersComponent implements OnInit {
 

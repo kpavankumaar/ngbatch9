@@ -4,8 +4,10 @@ import { map } from "rxjs/operators";
 // import { ICustomers } from "../../shared/interfaces";
 import { Observable } from "rxjs/Observable";
 @Injectable()
+
 export class DataService{
     url="/api/customers";
+    // url = "https://jsonplaceholder.typicode.com/photos";
 
     constructor(private http:HttpClient){
 
