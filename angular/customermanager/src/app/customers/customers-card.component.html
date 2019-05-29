@@ -1,3 +1,11 @@
-<p>
-  customers-card works!
-</p>
+<div class="card-group">
+    <div class="col-sm-3" *ngFor = "let cust of customers">
+      <div class="card text-white bg-primary mb-3">
+        <div class="card-header" routerLink = "['customers'+'/'+cust.id ]">{{cust.firstName | titlecase }} {{cust.lastName | titlecase}}</div>
+        <div class="card-body text-dark bg-light">
+          <p class="card-text">city: {{cust.city | titlecase}}</p>
+          <p class="card-text">State: {{cust.state.name | titlecase}}</p>
+        </div>
+      </div>
+    </div>
+  </div>

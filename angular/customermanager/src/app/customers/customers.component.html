@@ -1,13 +1,32 @@
 <div class="container">
-  <div class="card-group">
-    <div class="col-sm-3" *ngFor = "let cust of customers">
-      <div class="card text-white bg-primary mb-3">
-        <div class="card-header">{{cust.firstName | titlecase }} {{cust.lastName | titlecase}}</div>
-        <div class="card-body text-dark bg-light">
-          <p class="card-text">city: {{cust.city | titlecase}}</p>
-          <p class="card-text">State: {{cust.state.name | titlecase}}</p>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item active" (click) = "loadcomponent('card')">
+              <a class="nav-link">Card  <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item" (click) = "loadcomponent('list')">
+              <a class="nav-link" >list</a>
+            </li>
+            <li class="nav-item" (click) = "loadcomponent('newcustomer')">
+              <a class="nav-link">New Customer</a>
+            </li>
+          </ul>
         </div>
+      </nav>
+      <div *ngIf = "cardView">
+        <app-customers-card [customers] = "customers"></app-customers-card>
       </div>
-    </div>
-  </div>
+      <div *ngIf = "listView">
+        <app-customers-grid></app-customers-grid>
+      </div>
+      <div *ngIf = "newCust">
+        <!-- edit cutomer page -->
+      </div>
+        
+    
+  
 </div>
