@@ -9,7 +9,6 @@ import { RouterModule } from '@angular/router';
 @NgModule({
   imports: [
     CommonModule,
-    RouterModule,
     CustomersRoutingModule
   ],
   declarations: [CustomersComponent, CustomersCardComponent, CustomersGridComponent]

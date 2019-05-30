@@ -7,10 +7,14 @@ import { CustomerOrdersComponent } from './customer-orders.component';
 import { EditCustomerComponent } from './edit-customer.component';
 
 const route:Routes = [
-  {path:'', component:CustomerComponent},
-  {path:'details', component:CustomerDetailsComponent},
-  {path:'orders', component:CustomerOrdersComponent},
-  {path:'edit', component:EditCustomerComponent}
+  { path:'', 
+    component:CustomerComponent,
+    children:[
+      {path:'details', component:CustomerDetailsComponent},
+      {path:'orders', component:CustomerOrdersComponent},
+      {path:'edit', component:EditCustomerComponent}
+    ]
+  }
 ]
 @NgModule({
   imports: [
