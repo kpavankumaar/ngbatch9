@@ -4,6 +4,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HttpClientModule } from "@angular/common/http";
 import { DataService } from './service/data.service';
 import { RouterModule } from '@angular/router';
+import { AuthService } from './service/auth.service';
 
 @NgModule({
   imports: [
@@ -11,7 +12,7 @@ import { RouterModule } from '@angular/router';
     HttpClientModule,
     RouterModule
   ],
-  providers:[DataService],
+  providers:[DataService,AuthService],
   declarations: [NavbarComponent],
   exports:[NavbarComponent]
 })

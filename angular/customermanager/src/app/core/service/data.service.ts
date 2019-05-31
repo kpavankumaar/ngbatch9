@@ -8,7 +8,7 @@ import { Observable } from "rxjs/Observable";
 export class DataService{
     url="/api/customers";
     // url = "https://jsonplaceholder.typicode.com/photos";
-
+    // /api/customers/:id
     constructor(private http:HttpClient){
 
     }
@@ -16,5 +16,11 @@ export class DataService{
         return this.http.get(this.url).pipe(
             map((res)=> res)
         )
+    }
+    getCustomerDataById(id:number){
+        console.log(this.url+'/'+id)
+        return this.http.get(this.url+'/'+id).pipe(
+            map((res) => res)
+        );
     }
 }
