@@ -6,6 +6,7 @@ import { CustomerOrdersComponent } from './customer-orders.component';
 import { EditCustomerComponent } from './edit-customer.component';
 import { CustomerRoutingModule } from './customer-routing.module';
 import { RouterModule } from '@angular/router';
+import { CanActivateGaurd } from './canactivategaurd';
 
 @NgModule({
   imports: [
@@ -13,6 +14,7 @@ import { RouterModule } from '@angular/router';
     RouterModule,
     CustomerRoutingModule
   ],
+  
   declarations: [CustomerComponent, CustomerDetailsComponent, CustomerOrdersComponent, EditCustomerComponent]
 })
 export class CustomerModule { }

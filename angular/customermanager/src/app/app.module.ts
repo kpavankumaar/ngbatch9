@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { LoginModule } from './login/login.module';
+import { CanActivateGaurd } from './customer/canactivategaurd';
 
 
 @NgModule({
@@ -20,7 +21,7 @@ import { LoginModule } from './login/login.module';
     AppRoutingModule,
     LoginModule
   ],
-  providers: [],
+  providers:[CanActivateGaurd],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

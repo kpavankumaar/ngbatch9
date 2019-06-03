@@ -5,6 +5,7 @@ import { HttpClient } from "@angular/common/http";
 
 export class AuthService {
     authenticate:boolean  = false;
+    redirectUrl:string;
     constructor(private http : HttpClient) {
         
     }
