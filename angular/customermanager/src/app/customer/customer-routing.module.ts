@@ -6,6 +6,7 @@ import { CustomerDetailsComponent } from './customer-details.component';
 import { CustomerOrdersComponent } from './customer-orders.component';
 import { EditCustomerComponent } from './edit-customer.component';
 import { CanActivateGaurd } from './canactivategaurd';
+import { CanDeactivateGaurd } from './candeactivategaurd';
 
 // function canActivateFn():Boolean{
 //   let val = null;
@@ -20,7 +21,8 @@ const route:Routes = [
       {path:'orders', component:CustomerOrdersComponent},
       { path:'edit', 
         component:EditCustomerComponent,
-        canActivate:[CanActivateGaurd]
+        canActivate:[CanActivateGaurd],
+        canDeactivate:[CanDeactivateGaurd]
       }
     ]
   }

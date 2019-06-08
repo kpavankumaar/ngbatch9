@@ -8,7 +8,7 @@ import { CoreModule } from './core/core.module';
 import { SharedModule } from './shared/shared.module';
 import { LoginModule } from './login/login.module';
 import { CanActivateGaurd } from './customer/canactivategaurd';
-
+import { CanDeactivateGaurd } from './customer/candeactivategaurd';
 
 @NgModule({
   declarations: [
@@ -16,12 +16,12 @@ import { CanActivateGaurd } from './customer/canactivategaurd';
   ],
   imports: [
     BrowserModule,
+    LoginModule,
+    AppRoutingModule,
     CoreModule,
     SharedModule,
-    AppRoutingModule,
-    LoginModule
   ],
-  providers:[CanActivateGaurd],
+  providers:[CanActivateGaurd,CanDeactivateGaurd],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

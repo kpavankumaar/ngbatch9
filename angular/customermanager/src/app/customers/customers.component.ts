@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../core/service/data.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-customers',
   templateUrl: './customers.component.html',
@@ -8,7 +9,7 @@ import { DataService } from '../core/service/data.service';
 })
 export class CustomersComponent implements OnInit {
 
-  constructor(private dataService: DataService) { }
+  constructor(private dataService: DataService, private router:Router) { }
   customers;
   cardView : boolean;
   listView : boolean;
@@ -35,6 +36,7 @@ export class CustomersComponent implements OnInit {
       this.newCust = true;
       this.cardView = false;
       this.listView = false;
+      this.router.navigate(["customers/0/edit"]);
     }
   }
 

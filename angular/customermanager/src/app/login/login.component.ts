@@ -28,9 +28,9 @@ export class LoginComponent implements OnInit {
     var url = this.router.routerState.snapshot.url;
     
     if(this.authservice.authenticate){
-      this.authservice.logOut().subscribe((res:boolean) =>{
-        this.authservice.authenticate = false;
-      })
+      // this.authservice.logOut().subscribe((res:boolean) =>{
+      //   this.authservice.authenticate = false;
+      // })
     }else{
       this.authservice.logIn(this.user).subscribe((res:boolean) => {
         this.authservice.authenticate = true;

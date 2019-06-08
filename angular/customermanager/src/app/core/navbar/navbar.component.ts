@@ -22,7 +22,8 @@ export class NavbarComponent implements OnInit {
     if(this.authService.authenticate){
       this.authService.logOut().subscribe((res)=>{
         this.authService.authenticate = false;
-      })    
+      }) 
+      this.router.navigate(["customers"])   ;
     }else{
       this.router.navigate(["login"]);
     }

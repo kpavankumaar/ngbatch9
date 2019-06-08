@@ -1,3 +1,42 @@
-<p>
-  customers-grid works!
-</p>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col" cmSortBy="firstName" (sorted)="sort($event)">FirstName </th>
+      <th scope="col" cmSortBy="lastName">LastName</th>
+      <th scope="col" cmSortBy="address">Address</th>
+      <th scope="col" cmSortBy="City">City</th>
+      <th scope="col" cmSortBy="State">State</th>
+      
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor = "let cust of customers">
+      <th scope="row">{{cust.firstName | capitalize}}</th>
+      <td>{{cust.lastName}}</td>
+      <td>{{cust.address}}</td>
+      <td>{{cust.city}}</td>
+      <td>{{cust.state.name}}</td>
+    </tr>
+    
+  </tbody>
+</table>
+<!-- "id": 1,
+        "firstName": "varun",
+        "lastName": "reddy",
+        "gender": "male",
+        "address": "lb nagar",
+        "city": "hyderabad",
+        "state": {
+            "abbreviation": "TS",
+            "name": "Telangana"
+        },
+        "orders": [
+            {
+                "productName": "Basketball",
+                "itemCost": 7.99
+            },
+            {
+                "productName": "Shoes",
+                "itemCost": 199.99
+            }
+        ], -->

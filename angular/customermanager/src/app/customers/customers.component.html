@@ -21,7 +21,7 @@
         <app-customers-card [customers] = "customers"></app-customers-card>
       </div>
       <div *ngIf = "listView">
-        <app-customers-grid></app-customers-grid>
+        <app-customers-grid [customers] = "customers"></app-customers-grid>
       </div>
       <div *ngIf = "newCust">
         <!-- edit cutomer page -->
